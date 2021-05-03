@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-http-params": {
+      "projectType": "library",
+      "root": "projects/ngx-http-params",
+      "sourceRoot": "projects/ngx-http-params/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-http-params/tsconfig.lib.json",
+            "project": "projects/ngx-http-params/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-http-params/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-http-params/src/test.ts",
+            "tsConfig": "projects/ngx-http-params/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-http-params/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-http-params/tsconfig.lib.json",
+              "projects/ngx-http-params/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-http-params"
 }
